@@ -1,0 +1,239 @@
+@import 'tailwindcss';
+
+/* EVE Online Theme Colors */
+:root {
+  --eve-primary: #00d4ff;
+  --eve-secondary: #ff6b35;
+  --eve-accent: #00ff88;
+  --eve-warning: #ffaa00;
+  --eve-danger: #ff4444;
+  --eve-dark: #0a0e1a;
+  --eve-darker: #050812;
+  --eve-panel: #1a1f2e;
+  --eve-panel-light: #252b3d;
+  --eve-border: #2a3441;
+  --eve-text: #c7d2fe;
+  --eve-text-dim: #8892b0;
+  --eve-glow: rgba(0, 212, 255, 0.3);
+}
+
+/* Custom EVE-themed styles */
+.eve-panel {
+  background: linear-gradient(135deg, var(--eve-panel) 0%, var(--eve-panel-light) 100%);
+  border: 1px solid var(--eve-border);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.eve-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--eve-primary), transparent);
+  opacity: 0.6;
+}
+
+.eve-glow {
+  box-shadow: 0 0 20px var(--eve-glow);
+}
+
+.eve-button {
+  background: linear-gradient(135deg, var(--eve-primary) 0%, #0099cc 100%);
+  border: 1px solid var(--eve-primary);
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.eve-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.eve-button:hover::before {
+  left: 100%;
+}
+
+.eve-button:hover {
+  box-shadow: 0 0 15px var(--eve-glow);
+  transform: translateY(-1px);
+}
+
+.eve-header {
+  background: linear-gradient(135deg, var(--eve-darker) 0%, var(--eve-dark) 100%);
+  border-bottom: 2px solid var(--eve-border);
+  position: relative;
+}
+
+.eve-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--eve-primary), transparent);
+}
+
+.eve-card {
+  background: var(--eve-panel);
+  border: 1px solid var(--eve-border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.eve-card:hover {
+  border-color: var(--eve-primary);
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
+}
+
+.eve-text-primary {
+  color: var(--eve-primary);
+}
+
+.eve-text-secondary {
+  color: var(--eve-secondary);
+}
+
+.eve-text-accent {
+  color: var(--eve-accent);
+}
+
+.eve-text-warning {
+  color: var(--eve-warning);
+}
+
+.eve-text-danger {
+  color: var(--eve-danger);
+}
+
+.eve-bg-dark {
+  background-color: var(--eve-dark);
+}
+
+.eve-bg-darker {
+  background-color: var(--eve-darker);
+}
+
+.eve-killmail {
+  background: linear-gradient(135deg, var(--eve-panel) 0%, rgba(26, 31, 46, 0.8) 100%);
+  border: 1px solid var(--eve-border);
+  border-left: 3px solid var(--eve-accent);
+  transition: all 0.3s ease;
+}
+
+.eve-killmail:hover {
+  border-left-color: var(--eve-primary);
+  background: linear-gradient(135deg, var(--eve-panel-light) 0%, rgba(37, 43, 61, 0.8) 100%);
+}
+
+.eve-stat-card {
+  background: linear-gradient(135deg, var(--eve-panel) 0%, var(--eve-panel-light) 100%);
+  border: 1px solid var(--eve-border);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.eve-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--eve-primary), var(--eve-accent), var(--eve-primary));
+  opacity: 0.7;
+}
+
+.eve-input {
+  background: var(--eve-panel);
+  border: 1px solid var(--eve-border);
+  color: var(--eve-text);
+  border-radius: 4px;
+}
+
+.eve-input:focus {
+  border-color: var(--eve-primary);
+  box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
+  outline: none;
+}
+
+/* Animation classes */
+.eve-pulse {
+  animation: eve-pulse 2s ease-in-out infinite;
+}
+
+@keyframes eve-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 5px var(--eve-glow);
+  }
+  50% {
+    box-shadow:
+      0 0 20px var(--eve-glow),
+      0 0 30px var(--eve-glow);
+  }
+}
+
+.eve-slide-in {
+  animation: eve-slide-in 0.5s ease-out;
+}
+
+@keyframes eve-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading animation */
+.eve-loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.eve-loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 212, 255, 0.1),
+    rgba(0, 212, 255, 0.2),
+    rgba(0, 212, 255, 0.1),
+    transparent
+  );
+  animation: eve-shimmer 1.5s infinite;
+}
+
+@keyframes eve-shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
